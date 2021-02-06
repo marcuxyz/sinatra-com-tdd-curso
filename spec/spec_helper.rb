@@ -1,13 +1,11 @@
-require 'capybara'
+require 'rspec'
 require 'capybara/rspec'
 require 'capybara/dsl'
-require 'rspec'
-require 'rack/test'
-require 'require_all'
-require 'mongoid'
+require 'bundler/setup'
 
-require_all('app/models')
-Mongoid.load!('config/mongoid.yaml', :testing)
+
+ENV["RACK_ENV"] = "testing"
+Bundler.require :default, ENV["RACK_ENV"].to_sym
 
 RSpec.configure do |config| 
   config.include Capybara::DSL
