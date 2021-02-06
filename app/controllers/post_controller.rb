@@ -22,9 +22,11 @@ class PostController < ApplicationController
 
   post '/post/enviar' do
     @post = Post.new(params)
+
     if @post.save
       return redirect to '/'
     end
+    
     erb :new_post
   end
 end

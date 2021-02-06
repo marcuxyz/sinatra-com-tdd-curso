@@ -13,7 +13,7 @@ class Post
   validates :title, :content, :category, :status, presence: true
   validates :title, uniqueness: true, length: { maximum: 120 }
   validates :content, length: { minimum: 10 }
-  validates :status, inclusion: {in: ['publicado', 'rascunho']}
+  validates :status, inclusion: { in: %w[publicado rascunho] }
 
   belongs_to :user
   belongs_to :category
