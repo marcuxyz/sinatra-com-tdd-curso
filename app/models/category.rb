@@ -6,6 +6,7 @@ class Category
   include Mongoid::Timestamps::Updated
 
   field :name, type: String
+  field :color, type: String, default: 'primary'
 
   validates :name, presence: true, uniqueness: true
   

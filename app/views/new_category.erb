@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="col">
+    <h1 class="mb-4">Nova Categoria</h1>
+    
+    <form action="/categoria/enviar" class="card card-body" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Insira um nome" />
+      </div>
+
+      <div class="mb-3">
+        <label for="color" class="form-label">Cor</label>
+        <select name="color" id="color" class="form-select">
+          <option disabled selected>SELECIONE UMA COR</option>
+          <option value="warning">Amarelo</option>
+          <option value="primary">Azul</option>
+          <option value="success">Verde</option>
+          <option value="danger">Vermelho</option>
+          <option value="dark">Preto</option>
+        </select>
+      </div>
+
+      <input type="submit" class="btn btn-success btn-lg" value="Cadastrar">
+    </form>
+
+  </div>
+</div>

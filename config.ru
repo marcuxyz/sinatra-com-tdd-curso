@@ -4,3 +4,4 @@ run ApplicationController
 use HomeController
 use PostController
 use AuthController
+use CategoryController
