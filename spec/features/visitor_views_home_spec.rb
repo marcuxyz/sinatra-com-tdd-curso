@@ -1,8 +1,4 @@
 feature 'Visitor' do
-  background do
-    Capybara.app = HomeController
-  end
-
   scenario 'visit home page with successfully' do
     visit '/'
 
@@ -30,6 +26,7 @@ feature 'Visitor' do
   end
 
   scenario 'visit post' do
+
     user = User.create(
       name: 'Marcus Pereira',
       email: 'preto@marcuspereira.xyz',
@@ -41,16 +38,13 @@ feature 'Visitor' do
       user_id: user.id
     )
 
-    visit '/'
+    visit '/'  
     click_on post.title
-
-    save_page
     
-    expect(current_path).to eq("/post/#{post.id}")
-    expect(page).to have_content("Título: #{post.title}")
-    # expect(page).to have_content(post.content)
-    # expect(page).to have_content(post.category)
-    # expect(page).to have_content(post.status)
-    # expect(page).to have_link('Deletar')
+    expect(page).to have_content(post.title)
+    expect(page).to have_content(post.content)
+    expect(page).to have_content(post.category)
+    expect(page).to have_content(post.status)
+    expect(page).to have_link('Deletar')
   end
 end
