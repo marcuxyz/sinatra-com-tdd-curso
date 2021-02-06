@@ -21,4 +21,9 @@ class AuthController < ApplicationController
       
     redirect to '/'
   end
+
+  get '/sair' do
+    session.clear
+    redirect to '/'
+  end
 end
