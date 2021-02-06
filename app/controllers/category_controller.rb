@@ -1,4 +1,8 @@
 class CategoryController < ApplicationController
+  before '/categoria/*' do
+    protected!
+  end
+  
   get '/categoria/nova' do
     erb :new_category, :layout => :base
   end
