@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ["2.7"]
+        ruby-version: ["2.6", "2.7"]
         node-version: [12.x, 14.x]
-        mongodb-version: [4.0, 4.2, 4.4]
+        mongodb-version: [4.4]
 
     steps:
       - uses: actions/checkout@v2
@@ -39,6 +39,11 @@ jobs:
         uses: supercharge/mongodb-github-action@1.3.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
+
+      - name: Install Google Chrome
+        run: |
+          chmod +x ./scripts/install_chrome.sh
+          ./scripts/install_chrome.sh
 
       - name: Install gems
         run: bundle install
