@@ -20,6 +20,7 @@ end
 group :development, :test do
   gem "rspec", "~> 3.10"
   gem "capybara", "~> 3.35"
+  gem "byebug", "~> 11.1"
 end
 
 
