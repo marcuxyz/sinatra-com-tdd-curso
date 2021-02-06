@@ -12,8 +12,11 @@
   <div>
     <label for="category">Categorias</label>
     <select name="category" id="category">
-      <option value="1">Ação</option>
-      <option value="2">Terror</option>
+      <% @categories.each do |category| %>
+        <option value="<%= category._id %>">
+          <%= category.name %>
+        </option>
+      <% end %>
     </select>
   </div>
   <div>
@@ -27,7 +30,11 @@
   <div>
     <label for="user_id">Autor</label>
     <select name="user_id" id="user_id">
-      <option value="<%= @user._id %>">Marcus Pereira</option>
+      <% @users.each do |user| %>
+        <option value="<%= user._id %>">
+          <%= user.name %>
+        </option>
+      <% end %>
     </select>
   </div>
 

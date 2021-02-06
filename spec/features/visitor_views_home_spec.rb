@@ -13,37 +13,38 @@ feature 'Visitor' do
   end
 
   scenario 'see menu' do
+    category = Category.create(name: 'Ação')
     user = User.create(name: 'Marcus Pereira',
                        email: 'preto@marcuspereira.xyz', password: '123456')
-    Post.create!(title: 'Xbox One Vende 10M', content: 'lorem example im',
-                 category: 'Games', status: 'publicado', user_id: user.id)
+    post = Post.create(title: 'Xbox One Vende 10M', content: 'lorem example im',
+                       status: 'publicado', user: user, category: category)
 
     visit '/'
 
-    expect(page).to have_content('Título: Xbox One Vende 10M')
-    expect(page).to have_content('Categoria: Games')
-    expect(page).to have_content('Status: publicado')
+    expect(page).to have_content(post.title)
+    expect(page).to have_content(post.category.name)
+    expect(page).to have_content(post.status)
   end
 
   scenario 'visit post' do
-
+    category = Category.create(name: 'Ação')
     user = User.create(
       name: 'Marcus Pereira',
       email: 'preto@marcuspereira.xyz',
       password: '123456'
     )
     post = Post.create(
-      title: 'Microsoft lança xbox one x', category: 'Games',
+      title: 'Microsoft lança xbox one x', category: category,
       content: 'lorem example im', status: 'publicado',
-      user_id: user.id
+      user: user
     )
 
-    visit '/'  
+    visit '/'
     click_on post.title
-    
+
     expect(page).to have_content(post.title)
     expect(page).to have_content(post.content)
-    expect(page).to have_content(post.category)
+    expect(page).to have_content(post.category.name)
     expect(page).to have_content(post.status)
     expect(page).to have_link('Deletar')
   end

@@ -1,9 +1,10 @@
-feature 'Admin' do 
+feature 'Admin' do
   scenario 'delete post' do
+    category = Category.create(name: 'Ação')
     user = User.create(name: 'Marcus Pereira',
                        email: 'preto@marcuspereira.xyz', password: '123456')
-    post = Post.create(title: 'Playstation 5 custa 5k', content: 'lorem example im', 
-                       category: 'Games', status: 'publicado', user_id: user.id)
+    post = Post.create(title: 'Playstation 5 custa 5k', content: 'lorem example im',
+                       category: category, status: 'publicado', user: user)
 
     visit "/post/#{post.id}"
     click_on 'Deletar'
@@ -11,11 +12,12 @@ feature 'Admin' do
     expect(current_path).to eq('/')
     expect(page).not_to have_content('Playstation 5 custa 5k')
   end
-  
+
   scenario 'register new post' do
+    category = Category.create(name: 'Ação')
     User.create(name: 'Marcus Pereira',
                 email: 'preto@marcuspereira.xyz', password: '123456')
-    visit "/"
+    visit '/'
     click_on 'Nova Postagem'
 
     fill_in 'Título', with: 'Ações da Nintendo Aumenta 30% após Super Metroid'
@@ -30,5 +32,4 @@ feature 'Admin' do
     expect(page).to have_content('1')
     expect(page).to have_content('1')
   end
-
 end

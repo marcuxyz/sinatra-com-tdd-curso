@@ -2,6 +2,8 @@ require 'mongoid'
 
 class Post
   include Mongoid::Document
+  include Mongoid::Timestamps::Created
+  include Mongoid::Timestamps::Updated
 
   field :title, type: String
   field :content, type: String
@@ -13,4 +15,5 @@ class Post
   validates :content, :length => { minimum: 10 }
 
   belongs_to :user
+  belongs_to :category
 end
