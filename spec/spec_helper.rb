@@ -19,6 +19,14 @@ end
 ENV["RACK_ENV"] = "testing"
 Bundler.require :default, ENV["RACK_ENV"].to_sym
 
+
+Capybara.register_driver :cuprite do |app|
+  browser_options = {}.tap do |opts|
+    opts['no-sandbox'] = nil if ENV['CI']
+  end
+  Capybara::Cuprite::Driver.new(app, browser_options: browser_options)
+end
+
 Capybara.app = app
 Capybara.server = :webrick
 Capybara.javascript_driver = :cuprite
