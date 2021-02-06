@@ -2,6 +2,7 @@ require 'rspec'
 require 'capybara/rspec'
 require 'capybara/dsl'
 require 'bundler/setup'
+require "capybara/cuprite"
 
 
 ENV["RACK_ENV"] = "testing"
@@ -19,3 +20,5 @@ def app
 end
 
 Capybara.app = app
+Capybara.server = :webrick
+Capybara.javascript_driver = :cuprite

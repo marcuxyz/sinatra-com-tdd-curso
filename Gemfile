@@ -21,6 +21,7 @@ group :development, :test do
   gem "rspec", "~> 3.10"
   gem "capybara", "~> 3.35"
   gem "byebug", "~> 11.1"
+  gem "cuprite", "~> 0.11"
 end
 
 
