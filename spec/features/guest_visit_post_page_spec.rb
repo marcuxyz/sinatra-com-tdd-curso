@@ -19,6 +19,5 @@ feature 'Guest visit post page' do
     expect(page).to have_content(post.content)
     expect(page).to have_content(post.category.name)
     expect(page).to have_content(post.status)
-    expect(page).to have_link('Deletar')
   end
 end
