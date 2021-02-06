@@ -1,6 +1,9 @@
 require 'mongoid'
 require 'require_all'
 require 'byebug'
+require 'sinatra'
+
+
 
 configure :development do
   Mongoid.load! 'config/mongoid.yaml', :development
