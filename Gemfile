@@ -24,8 +24,5 @@ group :development, :test do
   gem "capybara", "~> 3.35"
   gem "byebug", "~> 11.1"
   gem "cuprite", "~> 0.11"
+  gem "rubocop", "~> 1.9"
 end
-
-
-
-
