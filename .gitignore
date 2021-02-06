@@ -1,2 +1,6 @@
-vendor
+# ignore folders
 .vscode
+vendor
+
+# ignore files
+.byebug_history
