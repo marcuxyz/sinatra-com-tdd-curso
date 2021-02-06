@@ -4,13 +4,9 @@ testing:
       database: gonb_blog_testing
       hosts:
         - localhost:27017
-      options:
-        belongs_to_required_by_default: true
 development:
   clients:
     default:
       database: gonb_blog_development
       hosts:
         - localhost:27017
-      options:
-        belongs_to_required_by_default: true

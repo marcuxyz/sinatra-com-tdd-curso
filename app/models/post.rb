@@ -14,6 +14,6 @@ class Post
   validates :title, uniqueness: true, length: { maximum: 120 }
   validates :content, length: { minimum: 10 }
 
-  belongs_to :user
-  belongs_to :category
+  belongs_to :user, optional: false
+  belongs_to :category, optional: false
 end
