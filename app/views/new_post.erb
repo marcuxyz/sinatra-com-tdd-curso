@@ -1,0 +1,35 @@
+<h1>Novo post</h1>
+
+<form action="/post/enviar" method="POST">
+  <div>
+    <label for="title">Título</label>
+    <input type="text" id="title" name="title" placeholder="Insira um títutlo" />
+  </div>
+  <div>
+    <label for="content">Conteúdo</label>
+    <textarea id="content" name="content" id="" cols="40" rows="10"></textarea>
+  </div>
+  <div>
+    <label for="category">Categorias</label>
+    <select name="category" id="category">
+      <option value="1">Ação</option>
+      <option value="2">Terror</option>
+    </select>
+  </div>
+  <div>
+    <label for="status">Status</label>
+    <select name="status" id="status">
+      <option value="1">Publicado</option>
+      <option value="2">Rascunho</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="user_id">Autor</label>
+    <select name="user_id" id="user_id">
+      <option value="<%= @user._id %>">Marcus Pereira</option>
+    </select>
+  </div>
+
+  <input type="submit" class="btn btn-success btn-lg" value="Cadastrar">
+</form>
