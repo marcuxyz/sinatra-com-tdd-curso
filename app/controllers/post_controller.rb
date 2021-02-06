@@ -30,4 +30,12 @@ class PostController < ApplicationController
     erb :new_post
   end
 
+  delete '/post/:id' do |id|
+    if Post.find(id).delete
+      return json :id => id
+    end
+
+    json :msg => 'post não existe!'
+  end
+
 end
