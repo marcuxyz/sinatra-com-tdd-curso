@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Admin delete post' do
   scenario 'with successfully', js: true do
     category = Category.create(name: 'Ação')

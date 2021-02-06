@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Guest visit post page' do
   scenario 'with sucessfully' do
     category = Category.create(name: 'Ação')

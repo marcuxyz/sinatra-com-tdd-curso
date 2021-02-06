@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'User views' do
   scenario 'and access log in page' do
     visit '/'

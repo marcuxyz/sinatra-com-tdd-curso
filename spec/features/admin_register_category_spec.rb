@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Admin register category' do
   scenario 'with successfully' do
     User.create!(name: 'Marcus', email: 'marcus@git.com', password: '123456')

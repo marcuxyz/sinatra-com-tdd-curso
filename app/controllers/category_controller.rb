@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CategoryController < ApplicationController
   before '/categoria/*' do
     protected!

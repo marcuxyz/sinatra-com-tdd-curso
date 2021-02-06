@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Guest visit home page' do
   scenario 'with successfully' do
     visit '/'

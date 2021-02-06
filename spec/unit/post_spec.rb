@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'Post Model'  do
   it 'create new post' do
     category = Category.create(

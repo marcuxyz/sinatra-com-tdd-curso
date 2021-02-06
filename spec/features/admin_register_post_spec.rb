@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Admin register post' do
   scenario 'with successfully' do
     Category.create(name: 'Ação')
