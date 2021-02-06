@@ -19,7 +19,7 @@
             <a class="nav-link" href="/">Home</a>
           </li>
 
-          <% if is_authenticated? %>
+          <% if authenticated? %>
             <li class="nav-item">
               <a class="nav-link" href="/categoria/nova">Nova Categoria</a>
             </li>
@@ -33,7 +33,7 @@
             </li>
           <% end %>
 
-          <% unless is_authenticated? %>
+          <% unless authenticated? %>
             <li class="nav-item">
               <a class="nav-link" href="/entrar">Entrar</a>
             </li>
