@@ -1,13 +1,13 @@
 require 'sinatra'
 
 class PostController < ApplicationController
-  get '/post/:id' do
-    @post = Post.find(params[:id])
+  get '/post/:id' do |id|
+    @post = Post.find(id)
     erb :post
   end
 
-  get '/post/deletar/:id' do
-    if Post.where(_id: params[:id]).delete
+  get '/post/deletar/:id' do |id|
+    if Post.where(_id: id).delete
       return redirect to '/'
     end
     erb :post
@@ -29,4 +29,5 @@ class PostController < ApplicationController
     
     erb :new_post
   end
+
 end
