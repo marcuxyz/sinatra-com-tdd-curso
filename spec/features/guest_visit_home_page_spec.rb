@@ -9,7 +9,7 @@ feature 'Guest visit home page' do
     visit '/'
 
     expect(page).to have_content('Home')
-    expect(page).to have_content('Nova Postagem')
+    expect(page).not_to have_content('Nova Postagem')
   end
 
   scenario 'see posts' do

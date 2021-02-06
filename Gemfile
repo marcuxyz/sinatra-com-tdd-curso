@@ -13,6 +13,8 @@ gem "require_all", "~> 3.0"
 
 gem "sinatra-contrib", "~> 2.1"
 
+gem "bcrypt", "~> 3.1"
+
 group :development do
   gem "solargraph", "~> 0.40.2"
 end
@@ -23,6 +25,7 @@ group :development, :test do
   gem "byebug", "~> 11.1"
   gem "cuprite", "~> 0.11"
 end
+
 
 
 

@@ -1,45 +1,32 @@
-<h1>Novo post</h1>
 
-<form action="/post/enviar" method="POST">
-  <div>
-    <label for="title">Título</label>
-    <input type="text" id="title" name="title" placeholder="Insira um títutlo" />
-  </div>
-  <div>
-    <label for="content">Conteúdo</label>
-    <textarea id="content" name="content" id="" cols="40" rows="10"></textarea>
-  </div>
-  <div>
-    <label for="category">Categorias</label>
-    <select name="category" id="category">
-      <option disabled selected>SELECIONE UMA CATEGORIA</option>
-      <% @categories.each do |category| %>
-        <option value="<%= category._id %>">
-          <%= category.name %>
-        </option>
-      <% end %>
-    </select>
-  </div>
-  <div>
-    <label for="status">Status</label>
-    <select name="status" id="status">
-      <option disabled selected>SELECIONE UM STATUS</option>
-      <option value="publicado">Publicado</option>
-      <option value="rascunho">Rascunho</option>
-    </select>
-  </div>
+<div class="container">
+  <div class="col">
+  <h1 class="mb-4">Novo Post</h1>
+  <form action="/post/enviar" class="card card-body" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Título</label>
+      <input type="text" id="title" name="title" class="form-control" placeholder="Insira um títutlo" />
+    </div>
+    
+    <div class="mb-3">
+      <label for="content" class="form-label">Conteúdo</label>
+      <textarea id="content" name="content" id="" class="form-control" cols="40" rows="10"></textarea>
+    </div>
+    
+    <div class="mb-3">
+      <label for="category" class="form-label">Categorias</label>
+      <select name="category" id="category" class="form-select">
+        <option disabled selected>SELECIONE UMA CATEGORIA</option>
+        <% @categories.each do |category| %>
+          <option value="<%= category._id %>">
+            <%= category.name %>
+          </option>
+        <% end %>
+      </select>
+    </div>
 
-  <div>
-    <label for="user_id">Autor</label>
-    <select name="user_id" id="user_id">
-      <option disabled selected>SELECIONE UM AUTOR</option>
-      <% @users.each do |user| %>
-        <option value="<%= user._id %>">
-          <%= user.name %>
-        </option>
-      <% end %>
-    </select>
+    <input type="submit" class="btn btn-success btn-lg" value="Cadastrar">
+  </form>
+  
   </div>
-
-  <input type="submit" class="btn btn-success btn-lg" value="Cadastrar">
-</form>
+</div>
