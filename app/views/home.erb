@@ -1,0 +1,29 @@
+<section>
+  <div class="container">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/new-post">Nova Postagem</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="container">
+    <div class="col-sm-12 col-md-6">
+      <div class="card card-body">
+        <dl>
+          <% @posts.each do | post |%>
+            <dt>Título:</dt>
+            <dd><a href="/post/<%= post._id %>"><%= post.title %></a></dd>
+            <dt>Categoria:</dt>
+            <dd><%= post.category %></dd>
+            <dt>Status:</dt>
+            <dd><%= post.status %></dd>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

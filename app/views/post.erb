@@ -1,0 +1,19 @@
+<section>
+  <div class="container">
+    <div class="col-sm-12 col-md-6">
+      <div class="card card-body">
+        <dl>
+          <dt>Título:</dt>
+          <dd><%= @post.title %></dd>
+          <dt>Conteúdo:</dt>
+          <dd><%= @post.content %></dd>
+          <dt>Categoria:</dt>
+          <dd><%= @post.category %></dd>
+          <dt>Status:</dt>
+          <dd><%= @post.status %></dd>
+        </dl>
+      </div>
+      <a href="/post/deletar/<%= @post._id %>" class="btn btn-danger">Deletar</a>
+    </div>
+  </div>
+</section>

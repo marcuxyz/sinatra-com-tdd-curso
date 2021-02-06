@@ -1,0 +1,16 @@
+testing:
+  clients:
+    default:
+      database: gonb_blog_testing
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timout: 1
+development:
+  clients:
+    default:
+      database: gonb_blog_development
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timout: 1
