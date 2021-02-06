@@ -5,7 +5,7 @@ feature 'User views' do
     expect(status_code).to be(200)
     expect(page).to have_content('Entrar')
   end
-  
+
   scenario 'and log in' do
     User.create!(name: 'Marcus', email: 'marcus@git.com', password: '123456')
 
@@ -21,13 +21,13 @@ feature 'User views' do
     expect(page).not_to have_content('Entrar')
     expect(page).to have_content('Novo Post')
   end
-  
+
   scenario 'see not logout button' do
     visit '/'
-    
+
     expect(page).not_to have_content('Sair')
   end
-  
+
   scenario 'see logout button' do
     User.create!(name: 'Marcus', email: 'marcus@git.com', password: '123456')
 
@@ -40,7 +40,7 @@ feature 'User views' do
 
     expect(page).to have_content('Sair')
   end
-  
+
   scenario 'see logout button' do
     User.create!(name: 'Marcus', email: 'marcus@git.com', password: '123456')
 

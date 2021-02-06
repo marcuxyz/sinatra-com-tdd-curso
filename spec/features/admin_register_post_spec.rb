@@ -9,7 +9,7 @@ feature 'Admin register post' do
     fill_in 'Email', with: 'marcus@git.com'
     fill_in 'Senha', with: '123456'
     click_on 'Entrar'
-    
+
     click_on 'Nova Postagem'
 
     fill_in 'Título', with: 'Ações da Nintendo Aumenta 30% após Super Metroid'

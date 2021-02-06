@@ -14,7 +14,7 @@ feature 'Admin register category' do
     fill_in 'Nome', with: 'Ação'
     select 'Azul', from: 'Cor'
     click_on 'Cadastrar'
-    
+
     expect(page).to have_content('Ação')
   end
 end

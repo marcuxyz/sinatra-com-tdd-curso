@@ -18,13 +18,11 @@ class ApplicationController < Sinatra::Base
     end
 
     def is_authenticated?
-      session[:user_id]? true : false
+      session[:user_id] ? true : false
     end
 
     def protected!
-      unless is_authenticated?
-        halt 401, "Sem autorização\n"
-      end
+      halt 401, "Sem autorização\n" unless is_authenticated?
     end
   end
 end

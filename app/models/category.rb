@@ -9,6 +9,6 @@ class Category
   field :color, type: String, default: 'primary'
 
   validates :name, presence: true, uniqueness: true
-  
+
   has_many :posts
 end

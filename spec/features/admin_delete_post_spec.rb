@@ -5,8 +5,8 @@ feature 'Admin delete post' do
                        email: 'preto@marcuspereira.xyz', password: '123456')
     post = Post.create(title: 'Playstation 5 custa 5k', content: 'lorem example im',
                        category: category, status: 'publicado', user: user)
-    
-    visit "/"
+
+    visit '/'
     click_button(id: "delete-#{post._id}")
 
     expect(page).not_to have_content('Playstation 5 custa 5k')
