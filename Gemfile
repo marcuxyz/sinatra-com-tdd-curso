@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |sinatratdd| "https://github.com/marcuxyz/sinatra-com-tdd-curso" }
 
 gem 'sinatra', '~> 2.1'
 

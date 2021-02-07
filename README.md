@@ -28,3 +28,9 @@ $ bundle exec rackup
 ```
 
 Para acessar a aplicação, abra o browser e entre em: `http://localhost:9292`
+
+## Rodando os testes
+
+```bash
+$ bundle exec rspec
+```
