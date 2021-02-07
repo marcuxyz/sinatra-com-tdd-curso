@@ -48,5 +48,8 @@ jobs:
       - name: Install gems
         run: bundle install
 
+      - name: run rubocop
+        run: bundle exec rubocop
+
       - name: Run tests
         run: bundle exec rspec
