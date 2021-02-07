@@ -49,7 +49,7 @@ jobs:
         run: bundle install
 
       - name: run rubocop
-        run: bundle exec rubocop
+        run: bundle exec rubocop -c rubocop.yml
 
       - name: Run tests
         run: bundle exec rspec
