@@ -9,10 +9,9 @@ class Post
 
   field :title, type: String
   field :content, type: String
-  field :status, type: String, default: 'publicado'
-  field :category, type: String
+  field :status, type: String, default: 'Publicado'
 
-  validates :title, :content, :category, :status, presence: true
+  validates :title, :content, :status, presence: true
   validates :title, uniqueness: true, length: { maximum: 120 }
   validates :content, length: { minimum: 10 }
 

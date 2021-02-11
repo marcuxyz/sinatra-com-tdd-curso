@@ -1,8 +1,11 @@
 
 <div class="container">
   <div class="col">
+  
   <h1 class="mb-4">Novo Post</h1>
-  <form action="/post/enviar" class="card card-body" method="POST">
+ 
+  <form action="/post/salvar" class="card card-body" method="POST">  
+
     <div class="mb-3">
       <label for="title" class="form-label">Título</label>
       <input type="text" id="title" name="title" class="form-control" placeholder="Insira um títutlo" />
@@ -15,12 +18,10 @@
     
     <div class="mb-3">
       <label for="category" class="form-label">Categorias</label>
-      <select name="category" id="category" class="form-select">
+      <select name="category" id="category" class="form-control">
         <option disabled selected>SELECIONE UMA CATEGORIA</option>
         <% @categories.each do |category| %>
-          <option value="<%= category._id %>">
-            <%= category.name %>
-          </option>
+          <option value="<%= category.id %>"><%= category.name %></option>
         <% end %>
       </select>
     </div>

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'sinatra'
-
 class HomeController < ApplicationController
   get '/' do
     @posts = Post.all

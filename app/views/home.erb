@@ -1,42 +1,41 @@
 <section>
   <div class="container">
     <div class="col-12">
-      
       <div class="mb-2">
-       <% @categories.each do | category |%>
-        <span class="badge bg-<%= category.color %>"><%= category.name %></span>
+        <% @categories.each do |category| %>
+          <span class="badge bg-<%= category.color %>">
+            <%= category.name %>
+          </span>
         <% end %>
       </div>
-      
+
       <div class="card card-body">
-        <table class="table table-responsive">
+        <table class="table">
           <thead>
             <tr>
               <th>Título</th>
               <th>Categoria</th>
               <th>Status</th>
+              <th>Author</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <% @posts.each do |post| %>
-              <tr id="post-<%= post._id %>">
+              <tr id="post-<%= post.id %>">
                 <td>
-                  <a href="/post/<%= post._id %>">
+                  <a href="/post/<%= post.id %>">
                     <%= post.title %>
                   </a>
                 </td>
+                <td><%= post.category.name %></td>
+                <td><%= post.status %></td>
+                <td><%= post.user.name %></td>
                 <td>
-                  <%= post.category.name %>
-                </td>
-                <td>
-                  <%= post.status %>
-                </td>
-                <td>
-                  <button 
-                      id="delete-<%= post._id %>" 
-                      onclick="deletePost('<%= post._id %>')" 
-                      class="btn btn-danger btn-sm">
+                  <button
+                    id="delete-<%= post.id %>"
+                    class="btn btn-danger btn-sm" 
+                    onclick="deletePost('<%= post.id %>')">
                     <i class="fas fa-trash"></i>
                   </button>
                 </td>
@@ -44,7 +43,7 @@
             <% end %>
           </tbody>
         </table>
-      </div>
+      </div>    
     </div>
   </div>
 </section>
@@ -53,11 +52,10 @@
   async function deletePost(postID) {
     let response = await fetch(`/post/${postID}`, { method: 'DELETE' })
     let { id } = await response.json()
-    
+
     let element = document.getElementById(`post-${id}`)
     if(element) {
       element.remove()
     }
   }
-
 </script>

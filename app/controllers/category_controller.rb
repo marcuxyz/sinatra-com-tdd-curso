@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 class CategoryController < ApplicationController
-  before '/categoria/*' do
-    protected!
-  end
-
   get '/categoria/nova' do
-    erb :new_category, layout: :base
+    protected!
+
+    erb :'categoria/new', layout: :base
   end
 
-  post '/categoria/enviar' do
+  post '/categoria/salvar' do
+    protected!
+
     @category = Category.new(params)
 
-    redirect to '/' if @category.save!
+    return redirect to '/' if @category.save!
 
-    erb :new_category, layout: :base
+    erb :'categoria/new', layout: :base
   end
 end

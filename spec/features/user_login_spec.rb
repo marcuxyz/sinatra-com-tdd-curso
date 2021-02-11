@@ -16,10 +16,11 @@ feature 'User views' do
 
     fill_in 'Email', with: 'marcus@git.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Entrar'
+    click_on 'Acessar'
 
     click_on 'Nova Postagem'
 
+    expect(status_code).to be(200)
     expect(page).not_to have_content('Entrar')
     expect(page).to have_content('Novo Post')
   end
@@ -38,7 +39,7 @@ feature 'User views' do
 
     fill_in 'Email', with: 'marcus@git.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Entrar'
+    click_on 'Acessar'
 
     expect(page).to have_content('Sair')
   end
@@ -51,12 +52,11 @@ feature 'User views' do
 
     fill_in 'Email', with: 'marcus@git.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Entrar'
+    click_on 'Acessar'
 
-    visit '/sair'
+    click_on 'Sair'
 
-    expect(page).not_to have_content('Sair')
-    expect(page).not_to have_content('Nova Postagem')
-    expect(page).not_to have_content('Nova Categoria')
+    expect(current_path).to eq('/')
+    expect(page).to have_content('Entrar')
   end
 end

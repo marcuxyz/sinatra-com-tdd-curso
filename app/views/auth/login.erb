@@ -1,20 +1,17 @@
 <h1>Entrar</h1>
 
 <div class="container">
-  <div class="card card-body">
-    <form action="/entrar" method="POST">
-      
-      <div>
-        <label for="email">Email</label>
-        <input name="email" type="email" id="email" placeholder="Insira seu e-mail">
-      </div>
+  <form action="/entrar" method="POST" class="card card-body">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" name="email" id="email" class="form-control" />
+    </div>
 
-      <div>
-        <label for="password">Senha</label>
-        <input name="password" type="password" id="password" placeholder="*********">
-      </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Senha</label>
+      <input type="password" name="password" id="password" class="form-control" />
+    </div>
 
-      <input type="submit" value="Entrar" class="btn btn-block btn-success" />
-    </form>
-  </div>
+    <input type="submit" value="Acessar" class="btn btn-block btn-success" />
+  </form>
 </div>

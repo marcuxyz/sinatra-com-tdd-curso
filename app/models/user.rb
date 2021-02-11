@@ -13,6 +13,8 @@ class User
   field :email, type: String
   field :password_hash, type: String
 
+  validates :name, :email, :password, presence: true
+
   has_many :posts
 
   def password

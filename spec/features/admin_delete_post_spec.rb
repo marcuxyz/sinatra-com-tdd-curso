@@ -1,16 +1,25 @@
 # frozen_string_literal: true
 
-feature 'Admin delete post' do
-  scenario 'with successfully', js: true do
-    category = Category.create(name: 'Ação')
-    user = User.create(name: 'Marcus Pereira',
-                       email: 'preto@marcuspereira.xyz', password: '123456')
-    post = Post.create(title: 'Playstation 5 custa 5k', content: 'lorem example im',
-                       category: category, status: 'publicado', user: user)
+feature 'Admin Delete Post', js: true do
+  scenario 'with successfully' do
+    category = Category.create(name: 'Terror', color: 'danger')
+    user = User.create!(name: 'Marcus', email: 'marcus@git.com', password: '123456')
+    post = Post.create(
+      title: 'Zelda é o melhor jogo para nintendo switch',
+      content: 'Nintendo Switch em 2021',
+      category: category,
+      user: user
+    )
 
     visit '/'
-    click_button(id: "delete-#{post._id}")
+    click_on 'Entrar'
 
-    expect(page).not_to have_content('Playstation 5 custa 5k')
+    fill_in 'Email', with: 'marcus@git.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Acessar'
+
+    click_button(id: "delete-#{post.id}")
+
+    expect(page).not_to have_content(post.title)
   end
 end

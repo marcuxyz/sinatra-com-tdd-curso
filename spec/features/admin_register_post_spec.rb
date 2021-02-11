@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-feature 'Admin register post' do
+feature 'Admin Register Post' do
   scenario 'with successfully' do
-    Category.create(name: 'Ação')
+    Category.create!(name: 'Terror')
     User.create!(name: 'Marcus', email: 'marcus@git.com', password: '123456')
 
     visit '/'
@@ -10,18 +10,19 @@ feature 'Admin register post' do
 
     fill_in 'Email', with: 'marcus@git.com'
     fill_in 'Senha', with: '123456'
-    click_on 'Entrar'
+    click_on 'Acessar'
 
     click_on 'Nova Postagem'
 
-    fill_in 'Título', with: 'Ações da Nintendo Aumenta 30% após Super Metroid'
-    fill_in 'Conteúdo', with: 'Nintedo dobra o valor das ações'
-    select 'Ação', from: 'Categorias'
+    fill_in 'Título', with: 'Ações da Nintendo Subiram 30%'
+    fill_in 'Conteúdo', with: 'Nintendo fala sobre ações'
+    select 'Terror', from: 'Categorias'
     click_on 'Cadastrar'
 
     expect(current_path).to eq('/')
-    expect(page).to have_link('Ações da Nintendo Aumenta 30% após Super Metroid')
-    expect(page).to have_content('Ação')
-    expect(page).to have_content('publicado')
+    expect(page).to have_content('Ações da Nintendo Subiram 30%')
+    expect(page).to have_content('Terror')
+    expect(page).to have_content('Publicado')
+    expect(page).to have_content('Marcus')
   end
 end

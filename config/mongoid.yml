@@ -1,12 +1,12 @@
-testing:
-  clients:
-    default:
-      database: gonb_blog_testing
-      hosts:
-        - localhost:27017
 development:
   clients:
     default:
-      database: gonb_blog_development
+      database: marcus_pereira_blog_dev
+      hosts:
+        - localhost:27017
+testing:
+  clients:
+    default:
+      database: marcus_pereira_blog_test
       hosts:
         - localhost:27017
